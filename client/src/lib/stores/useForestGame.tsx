@@ -16,7 +16,8 @@ export const ANIMALS: Animal[] = [
   { id: "ikan", name: "IKAN", color: "#95E1D3", emoji: "🐟" },
 ];
 
-export type GamePhase = "menu" | "playing" | "success" | "levelComplete";
+export type GameMode = "susun_huruf" | "tebak_pertama" | "cocokkan" | "huruf_hilang" | "kuis";
+export type GamePhase = "mode_select" | "menu" | "playing" | "success" | "levelComplete";
 
 export interface SelectedLetter {
   letter: string;
@@ -24,30 +25,48 @@ export interface SelectedLetter {
 }
 
 interface ForestGameState {
+  gameMode: GameMode | null;
   phase: GamePhase;
   currentLevel: number;
   currentAnimal: Animal | null;
   selectedLetters: SelectedLetter[];
+  selectedAnswer: string | null;
   score: number;
   totalStars: number;
   
   // Actions
+  selectMode: (mode: GameMode) => void;
   startGame: () => void;
   selectLetter: (letter: string, blockId: string) => void;
+  selectAnswer: (answer: string) => void;
   checkWord: () => boolean;
+  checkAnswer: (correctAnswer: string) => boolean;
   nextLevel: () => void;
   resetGame: () => void;
+  backToModeSelect: () => void;
   setPhase: (phase: GamePhase) => void;
 }
 
 export const useForestGame = create<ForestGameState>()(
   subscribeWithSelector((set, get) => ({
-    phase: "menu",
+    gameMode: null,
+    phase: "mode_select",
     currentLevel: 0,
     currentAnimal: null,
     selectedLetters: [],
+    selectedAnswer: null,
     score: 0,
     totalStars: 0,
+    
+    selectMode: (mode: GameMode) => {
+      set({
+        gameMode: mode,
+        phase: "menu",
+        currentLevel: 0,
+        score: 0,
+      });
+      console.log("Mode selected:", mode);
+    },
     
     startGame: () => {
       const firstAnimal = ANIMALS[0];
@@ -56,6 +75,7 @@ export const useForestGame = create<ForestGameState>()(
         currentLevel: 0,
         currentAnimal: firstAnimal,
         selectedLetters: [],
+        selectedAnswer: null,
         score: 0,
       });
       console.log("Game started with animal:", firstAnimal.name);
@@ -76,6 +96,11 @@ export const useForestGame = create<ForestGameState>()(
           get().checkWord();
         }, 300);
       }
+    },
+    
+    selectAnswer: (answer: string) => {
+      set({ selectedAnswer: answer });
+      console.log("Answer selected:", answer);
     },
     
     checkWord: () => {
@@ -101,6 +126,26 @@ export const useForestGame = create<ForestGameState>()(
       }
     },
     
+    checkAnswer: (correctAnswer: string) => {
+      const { selectedAnswer, score } = get();
+      const isCorrect = selectedAnswer === correctAnswer;
+      
+      console.log("Checking answer:", selectedAnswer, "vs", correctAnswer, "=", isCorrect);
+      
+      if (isCorrect) {
+        set({
+          phase: "success",
+          score: score + 100,
+          totalStars: get().totalStars + 1,
+          selectedAnswer: null,
+        });
+        return true;
+      } else {
+        set({ selectedAnswer: null });
+        return false;
+      }
+    },
+    
     nextLevel: () => {
       const { currentLevel } = get();
       const nextLevelIndex = currentLevel + 1;
@@ -111,6 +156,7 @@ export const useForestGame = create<ForestGameState>()(
           currentLevel: nextLevelIndex,
           currentAnimal: ANIMALS[nextLevelIndex],
           selectedLetters: [],
+          selectedAnswer: null,
         });
         console.log("Next level:", ANIMALS[nextLevelIndex].name);
       } else {
@@ -127,6 +173,19 @@ export const useForestGame = create<ForestGameState>()(
         currentLevel: 0,
         currentAnimal: null,
         selectedLetters: [],
+        selectedAnswer: null,
+        score: 0,
+      });
+    },
+    
+    backToModeSelect: () => {
+      set({
+        gameMode: null,
+        phase: "mode_select",
+        currentLevel: 0,
+        currentAnimal: null,
+        selectedLetters: [],
+        selectedAnswer: null,
         score: 0,
         totalStars: 0,
       });

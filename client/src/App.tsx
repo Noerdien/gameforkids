@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useForestGame } from "./lib/stores/useForestGame";
-import { GameScene } from "./components/GameScene";
-import { GameUI } from "./components/GameUI";
+import { UnifiedGameScene } from "./components/UnifiedGameScene";
+import { UnifiedGameUI } from "./components/UnifiedGameUI";
+import { ModeSelectScreen } from "./components/ModeSelectScreen";
 import { SoundManager } from "./components/SoundManager";
 import "@fontsource/inter";
 
 function App() {
   const [showGame, setShowGame] = useState(false);
-  const phase = useForestGame((state) => state.phase);
+  const { phase, gameMode } = useForestGame();
 
   useEffect(() => {
     setShowGame(true);
@@ -19,11 +20,14 @@ function App() {
 
   return (
     <div style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>
-      {/* 3D Game Scene - only show when playing or success */}
-      {(phase === 'playing' || phase === 'success') && <GameScene />}
+      {/* Mode Selection Screen */}
+      {phase === 'mode_select' && <ModeSelectScreen />}
       
-      {/* UI Overlay */}
-      <GameUI />
+      {/* 3D Game Scene - show when playing or success */}
+      {(phase === 'playing' || phase === 'success') && <UnifiedGameScene />}
+      
+      {/* UI Overlay - show for menu, playing, success, and levelComplete */}
+      {phase !== 'mode_select' && <UnifiedGameUI />}
       
       {/* Sound Manager */}
       <SoundManager />
