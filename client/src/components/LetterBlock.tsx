@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 import { useFrame, ThreeEvent } from "@react-three/fiber";
 import * as THREE from "three";
 import { Text } from "@react-three/drei";
@@ -106,8 +106,10 @@ export function LetterBlocksContainer() {
   
   if (!currentAnimal) return null;
   
-  const letters = currentAnimal.name.split("");
-  const shuffledLetters = [...letters].sort(() => Math.random() - 0.5);
+  const shuffledLetters = useMemo(() => {
+    const letters = currentAnimal.name.split("");
+    return [...letters].sort(() => Math.random() - 0.5);
+  }, [currentAnimal.id]);
   
   const totalWidth = shuffledLetters.length * 1.2;
   const startX = -totalWidth / 2 + 0.6;
