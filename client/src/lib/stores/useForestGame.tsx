@@ -9,11 +9,51 @@ export interface Animal {
 }
 
 export const ANIMALS: Animal[] = [
+  // Hewan Domestik
   { id: "kucing", name: "KUCING", color: "#FF6B6B", emoji: "🐱" },
   { id: "kelinci", name: "KELINCI", color: "#4ECDC4", emoji: "🐰" },
   { id: "bebek", name: "BEBEK", color: "#FFE66D", emoji: "🦆" },
   { id: "ayam", name: "AYAM", color: "#FF8C42", emoji: "🐔" },
   { id: "ikan", name: "IKAN", color: "#95E1D3", emoji: "🐟" },
+  { id: "anjing", name: "ANJING", color: "#8B6F47", emoji: "🐶" },
+  { id: "sapi", name: "SAPI", color: "#9B59B6", emoji: "🐄" },
+  
+  // Hewan Buas
+  { id: "singa", name: "SINGA", color: "#F1C40F", emoji: "🦁" },
+  { id: "harimau", name: "HARIMAU", color: "#E74C3C", emoji: "🐯" },
+  { id: "gajah", name: "GAJAH", color: "#7F8C8D", emoji: "🐘" },
+  { id: "beruang", name: "BERUANG", color: "#8B4513", emoji: "🐻" },
+  
+  // Hewan Lain
+  { id: "monyet", name: "MONYET", color: "#D2691E", emoji: "🐵" },
+  { id: "kuda", name: "KUDA", color: "#A0522D", emoji: "🐴" },
+  { id: "rusa", name: "RUSA", color: "#8B4513", emoji: "🦌" },
+  { id: "domba", name: "DOMBA", color: "#F5F5DC", emoji: "🐑" },
+  { id: "kambing", name: "KAMBING", color: "#D3D3D3", emoji: "🐐" },
+  
+  // Burung
+  { id: "burung", name: "BURUNG", color: "#E74C3C", emoji: "🐦" },
+  { id: "elang", name: "ELANG", color: "#8B4513", emoji: "🦅" },
+  { id: "penguin", name: "PENGUIN", color: "#000000", emoji: "🐧" },
+  
+  // Serangga & Reptil
+  { id: "capung", name: "CAPUNG", color: "#00CED1", emoji: "🦗" },
+  { id: "ular", name: "ULAR", color: "#228B22", emoji: "🐍" },
+  { id: "buaya", name: "BUAYA", color: "#006400", emoji: "🐊" },
+  { id: "kadal", name: "KADAL", color: "#8FBC8F", emoji: "🦎" },
+  
+  // Laut
+  { id: "paus", name: "PAUS", color: "#4682B4", emoji: "🐋" },
+  { id: "lumba", name: "LUMBA-LUMBA", color: "#1E90FF", emoji: "🐬" },
+  { id: "penyu", name: "PENYU", color: "#DAA520", emoji: "🐢" },
+  { id: "kepiting", name: "KEPITING", color: "#FF4500", emoji: "🦀" },
+  
+  // Tumbuhan
+  { id: "pohon", name: "POHON", color: "#228B22", emoji: "🌳" },
+  { id: "bunga", name: "BUNGA", color: "#FF69B4", emoji: "🌸" },
+  { id: "rumput", name: "RUMPUT", color: "#90EE90", emoji: "🌱" },
+  { id: "kaktus", name: "KAKTUS", color: "#7CB342", emoji: "🌵" },
+  { id: "kelapa", name: "KELAPA", color: "#DAA520", emoji: "🥥" },
 ];
 
 export type GameMode = "susun_huruf" | "tebak_pertama" | "cocokkan" | "huruf_hilang" | "kuis";

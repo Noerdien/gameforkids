@@ -60,12 +60,22 @@ export function GameHeaderScreen() {
           <p className={`text-lg sm:text-xl md:text-2xl font-bold mb-4 drop-shadow transition-colors duration-300 ${isDarkMode ? 'text-cyan-100' : 'text-white'}`}>
             Hewan-hewan yang ingin kamu selamatkan:
           </p>
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
-            <div className="text-4xl sm:text-5xl md:text-6xl">🐱</div>
-            <div className="text-4xl sm:text-5xl md:text-6xl">🐰</div>
-            <div className="text-4xl sm:text-5xl md:text-6xl">🦆</div>
-            <div className="text-4xl sm:text-5xl md:text-6xl">🐔</div>
-            <div className="text-4xl sm:text-5xl md:text-6xl">🐟</div>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
+            <div className="text-3xl sm:text-4xl md:text-5xl">🐱</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🐶</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🦁</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🐘</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🐯</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🦌</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🐵</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🦅</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🐢</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🐋</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🌳</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🌸</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🌵</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🦐</div>
+            <div className="text-3xl sm:text-4xl md:text-5xl">🐧</div>
           </div>
         </div>
 
