@@ -35,12 +35,14 @@ export function UnifiedGameUI() {
     <>
       {/* Header Game - Sticky at top - Always interactive */}
       <div className="z-30 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent flex-shrink-0" style={{ pointerEvents: 'auto' }}>
-        <div className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center border-b-2 border-white/30">
+        <div className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 text-center border-b-2 border-white/30">
           {/* Game For Kids Logo */}
-          <div className="flex justify-center mb-1 sm:mb-1 md:mb-2">
-            <span className="text-base sm:text-lg md:text-2xl font-bold text-yellow-300 drop-shadow-lg">
-              🎮 GAME FOR KIDS 🎮
-            </span>
+          <div className="flex justify-center mb-2 sm:mb-3 md:mb-4">
+            <div className="bg-white/95 backdrop-blur rounded-full px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 shadow-xl border-4 border-yellow-400">
+              <span className="text-base sm:text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+                🎮 GAME FOR KIDS 🎮
+              </span>
+            </div>
           </div>
           <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-white drop-shadow-lg mb-3 sm:mb-3 md:mb-4 leading-snug">
             🌳 Penyelamat Abjad Hutan 🌳
