@@ -1,31 +1,53 @@
 import { useForestGame } from "@/lib/stores/useForestGame";
 import { Button } from "./ui/button";
+import { Moon, Sun } from "lucide-react";
 
 export function GameHeaderScreen() {
-  const { goToModeSelect } = useForestGame();
+  const { goToModeSelect, isDarkMode, toggleDarkMode } = useForestGame();
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-green-300 via-blue-400 to-purple-500 p-4 overflow-auto">
+    <div className={`fixed inset-0 flex flex-col items-center justify-center p-4 overflow-auto transition-all duration-300 ${isDarkMode ? 'bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900' : 'bg-gradient-to-br from-green-300 via-blue-400 to-purple-500'}`}>
+      {/* Dark Mode Toggle Button - Top Right */}
+      <div className="absolute top-4 right-4 z-40">
+        <Button
+          onClick={toggleDarkMode}
+          size="sm"
+          className={`rounded-full min-w-10 min-h-10 text-white shadow-lg flex items-center justify-center transition-all duration-300 active:scale-90 ${isDarkMode ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-orange-500 hover:bg-orange-600'}`}
+          style={{ touchAction: 'manipulation' }}
+        >
+          {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+        </Button>
+      </div>
+
       <div className="text-center w-full max-w-2xl py-8">
+        {/* Game For Kids Logo */}
+        <div className="flex justify-center mb-4 sm:mb-6">
+          <div className={`backdrop-blur rounded-full px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 shadow-xl border-4 transition-all duration-300 ${isDarkMode ? 'bg-gray-800/95 border-cyan-400' : 'bg-white/95 border-yellow-400'}`}>
+            <span className={`inline-block text-base sm:text-xl md:text-2xl font-black transition-all duration-300 ${isDarkMode ? 'text-cyan-400' : 'text-pink-600'}`}>
+              🎮 GAME FOR KIDS 🎮
+            </span>
+          </div>
+        </div>
+
         {/* Big Title */}
         <div className="mb-8 md:mb-12">
           <div className="text-6xl sm:text-7xl md:text-8xl mb-4 animate-bounce">
             🌳
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 drop-shadow-lg">
+          <h1 className={`text-4xl sm:text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg transition-colors duration-300 ${isDarkMode ? 'text-cyan-100' : 'text-white'}`}>
             Penyelamat Abjad Hutan
           </h1>
-          <p className="text-xl sm:text-2xl md:text-3xl text-white drop-shadow">
+          <p className={`text-xl sm:text-2xl md:text-3xl drop-shadow transition-colors duration-300 ${isDarkMode ? 'text-cyan-100' : 'text-white'}`}>
             Game Edukasi Anak Indonesia
           </p>
         </div>
 
         {/* Description */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-10 shadow-2xl mb-8 md:mb-12">
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-800 mb-4 font-semibold">
+        <div className={`backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-10 shadow-2xl mb-8 md:mb-12 transition-all duration-300 ${isDarkMode ? 'bg-slate-700/90' : 'bg-white/90'}`}>
+          <p className={`text-lg sm:text-xl md:text-2xl mb-4 font-semibold transition-colors duration-300 ${isDarkMode ? 'text-cyan-100' : 'text-gray-800'}`}>
             🎮 Selamat datang!
           </p>
-          <div className="space-y-3 text-left text-base sm:text-lg md:text-xl text-gray-700">
+          <div className={`space-y-3 text-left text-base sm:text-lg md:text-xl transition-colors duration-300 ${isDarkMode ? 'text-cyan-50' : 'text-gray-700'}`}>
             <p>✨ Bantu hewan-hewan lucu menemukan jalan pulang!</p>
             <p>🔤 Belajar membaca dan menulis huruf Indonesia</p>
             <p>🌟 Kumpulkan bintang dengan menyelesaikan setiap level</p>
@@ -35,7 +57,7 @@ export function GameHeaderScreen() {
 
         {/* Animals preview */}
         <div className="mb-8 md:mb-12">
-          <p className="text-white text-lg sm:text-xl md:text-2xl font-bold mb-4 drop-shadow">
+          <p className={`text-lg sm:text-xl md:text-2xl font-bold mb-4 drop-shadow transition-colors duration-300 ${isDarkMode ? 'text-cyan-100' : 'text-white'}`}>
             Hewan-hewan yang ingin kamu selamatkan:
           </p>
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
@@ -58,7 +80,7 @@ export function GameHeaderScreen() {
         </Button>
 
         {/* Footer */}
-        <div className="mt-8 md:mt-12 text-white text-sm sm:text-base md:text-lg">
+        <div className={`mt-8 md:mt-12 text-sm sm:text-base md:text-lg transition-colors duration-300 ${isDarkMode ? 'text-cyan-100' : 'text-white'}`}>
           <p>Setiap level = 1 hewan diselamatkan</p>
           <p className="mt-2">Belajar sambil bermain! 🎨</p>
         </div>
