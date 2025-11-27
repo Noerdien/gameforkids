@@ -66,10 +66,10 @@ function App() {
             width: '100%', 
             height: '100%',
             zIndex: 10,
-            pointerEvents: 'none',
             display: 'flex',
             flexDirection: 'column',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            pointerEvents: 'auto'
           }}>
             <UnifiedGameUI />
           </div>

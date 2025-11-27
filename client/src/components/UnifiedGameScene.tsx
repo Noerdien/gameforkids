@@ -52,14 +52,15 @@ export function UnifiedGameScene() {
         {isCorrect && <SuccessParticles />}
       </Suspense>
       
-      {/* Controls - limited rotation for kids */}
+      {/* Controls - full 360 rotation for kids */}
       <OrbitControls
         enablePan={false}
         enableZoom={false}
-        maxPolarAngle={Math.PI / 2.2}
-        minPolarAngle={Math.PI / 4}
-        maxAzimuthAngle={Math.PI / 6}
-        minAzimuthAngle={-Math.PI / 6}
+        maxPolarAngle={Math.PI}
+        minPolarAngle={0}
+        maxAzimuthAngle={Math.PI * 2}
+        minAzimuthAngle={-Math.PI * 2}
+        autoRotate={false}
       />
     </Canvas>
   );

@@ -89,7 +89,7 @@ export function UnifiedGameUI() {
       </div>
       
       {/* Mode-specific content - Scrollable overlay */}
-      <div className="flex-1 pointer-events-auto overflow-y-auto px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4">
+      <div className="flex-1 pointer-events-auto overflow-y-auto px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4" style={{ pointerEvents: gameMode !== 'susun_huruf' ? 'auto' : 'none' }}>
         {gameMode === "tebak_pertama" && <TebakHurufPertama />}
         {gameMode === "huruf_hilang" && <CariHurufHilang />}
         {gameMode === "cocokkan" && <CocokkanGambar />}
