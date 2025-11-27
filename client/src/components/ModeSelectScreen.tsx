@@ -49,13 +49,20 @@ export function ModeSelectScreen() {
   ];
   
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-green-300 via-blue-400 to-purple-500 overflow-auto p-4">
-      <div className="text-center w-full max-w-6xl py-6">
-        <div className="mb-6 sm:mb-8 md:mb-12">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-2 sm:mb-4 drop-shadow-lg">
+    <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-green-300 via-blue-400 to-purple-500 overflow-auto p-3 sm:p-4">
+      <div className="text-center w-full max-w-6xl py-4 sm:py-6">
+        <div className="mb-4 sm:mb-6 md:mb-12">
+          <div className="flex justify-center mb-2 sm:mb-3">
+            <div className="bg-white/95 backdrop-blur border-4 border-yellow-400 rounded-full px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 shadow-xl">
+              <span className="inline-block text-lg sm:text-2xl md:text-3xl font-black text-pink-600">
+                🎮 GAME FOR KIDS 🎮
+              </span>
+            </div>
+          </div>
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-2 sm:mb-4 drop-shadow-lg">
             🌳 Penyelamat Abjad Hutan 🌳
           </h1>
-          <p className="text-lg sm:text-2xl md:text-3xl text-white drop-shadow">
+          <p className="text-base sm:text-2xl md:text-3xl text-white drop-shadow">
             Pilih mode permainan!
           </p>
         </div>
@@ -67,7 +74,8 @@ export function ModeSelectScreen() {
               <button
                 key={mode.id}
                 onClick={() => selectMode(mode.id)}
-                className="group relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-lg sm:shadow-2xl hover:scale-105 transition-transform cursor-pointer active:scale-95"
+                className="group relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 shadow-lg sm:shadow-2xl hover:scale-105 transition-transform cursor-pointer active:scale-95 min-h-40 sm:min-h-48 md:min-h-56 flex flex-col items-center justify-center"
+                style={{ touchAction: 'manipulation' }}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${mode.color} opacity-0 group-hover:opacity-20 rounded-2xl sm:rounded-3xl transition-opacity`}></div>
                 

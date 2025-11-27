@@ -51,7 +51,8 @@ export function GameHeaderScreen() {
         <Button
           onClick={goToModeSelect}
           size="lg"
-          className="text-2xl sm:text-3xl md:text-4xl px-10 sm:px-16 md:px-20 py-6 sm:py-8 md:py-12 rounded-3xl md:rounded-full bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-bold shadow-2xl transform hover:scale-110 transition-transform active:scale-95 w-full sm:w-auto"
+          className="text-xl sm:text-3xl md:text-4xl px-8 sm:px-16 md:px-20 py-4 sm:py-8 md:py-12 rounded-2xl md:rounded-full bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-bold shadow-2xl transform hover:scale-110 transition-transform active:scale-95 w-full sm:w-auto min-h-14 sm:min-h-16 md:min-h-20"
+          style={{ touchAction: 'manipulation' }}
         >
           🚀 Mulai Petualangan!
         </Button>
