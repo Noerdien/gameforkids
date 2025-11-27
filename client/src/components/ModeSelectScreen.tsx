@@ -101,6 +101,7 @@ export function ModeSelectScreen() {
         
         <div className="text-white text-sm sm:text-lg md:text-xl">
           <p>⭐ Kumpulkan bintang sebanyak-banyaknya!</p>
+          <p className="mt-6 text-xs sm:text-sm opacity-75">© 2025 dev_nurdin. All rights reversed</p>
         </div>
       </div>
     </div>

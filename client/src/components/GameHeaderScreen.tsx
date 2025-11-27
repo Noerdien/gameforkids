@@ -93,6 +93,7 @@ export function GameHeaderScreen() {
         <div className={`mt-8 md:mt-12 text-sm sm:text-base md:text-lg transition-colors duration-300 ${isDarkMode ? 'text-cyan-100' : 'text-white'}`}>
           <p>Setiap level = 1 hewan diselamatkan</p>
           <p className="mt-2">Belajar sambil bermain! 🎨</p>
+          <p className="mt-4 text-xs sm:text-sm opacity-80">© 2025 dev_nurdin. All rights reversed</p>
         </div>
       </div>
     </div>
