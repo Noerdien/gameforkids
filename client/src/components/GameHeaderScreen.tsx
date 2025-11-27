@@ -19,7 +19,7 @@ export function GameHeaderScreen() {
         </Button>
       </div>
 
-      <div className="text-center w-full max-w-2xl py-8">
+      <div className="text-center w-full max-w-2xl py-8 pt-16 sm:pt-20 md:pt-24">
         {/* Game For Kids Logo */}
         <div className="flex justify-center mb-6 sm:mb-8 md:mb-10">
           <div className={`rounded-3xl px-6 sm:px-10 md:px-14 py-4 sm:py-6 md:py-8 shadow-2xl border-4 sm:border-6 md:border-8 transition-all duration-300 ${isDarkMode ? 'bg-cyan-600 border-cyan-300' : 'bg-yellow-300 border-yellow-500'}`}>
