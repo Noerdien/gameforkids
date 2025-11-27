@@ -39,9 +39,9 @@ export function UnifiedGameUI() {
       <div className={`z-30 flex-shrink-0 transition-all duration-300 ${isDarkMode ? 'bg-gradient-to-b from-slate-800 via-slate-700 to-transparent' : 'bg-gradient-to-b from-blue-500 via-purple-500 to-transparent'}`} style={{ pointerEvents: 'auto' }}>
         <div className={`px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 text-center border-b-2 transition-colors duration-300 ${isDarkMode ? 'border-white/10' : 'border-white/30'}`}>
           {/* Game For Kids Logo */}
-          <div className="flex justify-center mb-2 sm:mb-3 md:mb-4">
+          <div className="flex justify-center mb-2 sm:mb-3 md:mb-4 min-h-8">
             <div className={`backdrop-blur rounded-full px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 shadow-xl border-4 transition-all duration-300 ${isDarkMode ? 'bg-gray-800/95 border-cyan-400' : 'bg-white/95 border-yellow-400'}`}>
-              <span className={`text-base sm:text-xl md:text-2xl font-black text-transparent bg-clip-text transition-all duration-300 ${isDarkMode ? 'bg-gradient-to-r from-cyan-400 to-blue-400' : 'bg-gradient-to-r from-purple-600 to-pink-600'}`}>
+              <span className={`inline-block text-base sm:text-xl md:text-2xl font-black transition-all duration-300 ${isDarkMode ? 'text-cyan-400' : 'text-pink-600'}`}>
                 🎮 GAME FOR KIDS 🎮
               </span>
             </div>
