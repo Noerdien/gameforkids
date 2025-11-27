@@ -20,7 +20,7 @@ export function UnifiedGameScene() {
       <color attach="background" args={["#87CEEB"]} />
       
       {/* Camera */}
-      <PerspectiveCamera makeDefault position={[0, 5, 8]} fov={50} />
+      <PerspectiveCamera makeDefault position={[0, 3, 4]} fov={50} />
       
       {/* Lighting */}
       <ambientLight intensity={0.6} />
