@@ -54,6 +54,16 @@ export const ANIMALS: Animal[] = [
   { id: "rumput", name: "RUMPUT", color: "#90EE90", emoji: "🌱" },
   { id: "kaktus", name: "KAKTUS", color: "#7CB342", emoji: "🌵" },
   { id: "kelapa", name: "KELAPA", color: "#DAA520", emoji: "🥥" },
+  { id: "bunga_matahari", name: "BUNGA MATAHARI", color: "#FFD700", emoji: "🌻" },
+  { id: "bunga_ros", name: "BUNGA ROS", color: "#DC143C", emoji: "🌹" },
+  { id: "pohon_palm", name: "POHON PALEM", color: "#228B22", emoji: "🌴" },
+  { id: "jamur", name: "JAMUR", color: "#8B4513", emoji: "🍄" },
+  { id: "daun", name: "DAUN", color: "#228B22", emoji: "🍃" },
+  { id: "padi", name: "PADI", color: "#DAA520", emoji: "🌾" },
+  { id: "bayam", name: "BAYAM", color: "#228B22", emoji: "🥬" },
+  { id: "cabai", name: "CABAI", color: "#FF0000", emoji: "🌶️" },
+  { id: "jagung", name: "JAGUNG", color: "#FFD700", emoji: "🌽" },
+  { id: "nanas", name: "NANAS", color: "#FFD700", emoji: "🍍" },
 ];
 
 export type GameMode = "susun_huruf" | "tebak_pertama" | "cocokkan" | "huruf_hilang" | "kuis";
