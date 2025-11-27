@@ -76,9 +76,10 @@ export function UnifiedGameUI() {
         <Button
           onClick={backToModeSelect}
           size="sm"
-          className={`rounded-full w-6 sm:w-8 md:w-12 h-6 sm:h-8 md:h-12 text-white shadow-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isDarkMode ? 'bg-red-600 hover:bg-red-700' : 'bg-gray-500 hover:bg-gray-600'}`}
+          className={`rounded-full min-w-10 min-h-10 sm:w-8 md:w-12 sm:h-8 md:h-12 text-white shadow-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 active:scale-90 ${isDarkMode ? 'bg-red-600 hover:bg-red-700' : 'bg-gray-500 hover:bg-gray-600'}`}
+          style={{ touchAction: 'manipulation' }}
         >
-          <ArrowLeft className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" />
+          <ArrowLeft className="w-4 sm:w-4 md:w-6 h-4 sm:h-4 md:h-6" />
         </Button>
         
         <div className={`backdrop-blur-sm rounded px-1.5 sm:px-2 md:px-4 py-0.5 sm:py-1 md:py-2 shadow-lg transition-all duration-300 ${isDarkMode ? 'bg-slate-700/90' : 'bg-white/90'}`}>
@@ -93,17 +94,19 @@ export function UnifiedGameUI() {
         <Button
           onClick={toggleDarkMode}
           size="sm"
-          className={`rounded-full w-6 sm:w-8 md:w-12 h-6 sm:h-8 md:h-12 text-white shadow-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isDarkMode ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-orange-500 hover:bg-orange-600'}`}
+          className={`rounded-full min-w-10 min-h-10 sm:w-8 md:w-12 sm:h-8 md:h-12 text-white shadow-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 active:scale-90 ${isDarkMode ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-orange-500 hover:bg-orange-600'}`}
+          style={{ touchAction: 'manipulation' }}
         >
-          {isDarkMode ? <Sun className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" /> : <Moon className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" />}
+          {isDarkMode ? <Sun className="w-4 sm:w-4 md:w-6 h-4 sm:h-4 md:h-6" /> : <Moon className="w-4 sm:w-4 md:w-6 h-4 sm:h-4 md:h-6" />}
         </Button>
         
         <Button
           onClick={toggleMute}
           size="sm"
-          className={`rounded-full w-6 sm:w-8 md:w-12 h-6 sm:h-8 md:h-12 text-white shadow-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-purple-500 hover:bg-purple-600'}`}
+          className={`rounded-full min-w-10 min-h-10 sm:w-8 md:w-12 sm:h-8 md:h-12 text-white shadow-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 active:scale-90 ${isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-purple-500 hover:bg-purple-600'}`}
+          style={{ touchAction: 'manipulation' }}
         >
-          {isMuted ? <VolumeX className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" /> : <Volume2 className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" />}
+          {isMuted ? <VolumeX className="w-4 sm:w-4 md:w-6 h-4 sm:h-4 md:h-6" /> : <Volume2 className="w-4 sm:w-4 md:w-6 h-4 sm:h-4 md:h-6" />}
         </Button>
       </div>
       
