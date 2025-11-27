@@ -129,7 +129,7 @@ export function UnifiedGameUI() {
       {/* Success overlay - Fixed modal */}
       {phase === "success" && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm pointer-events-auto z-50 p-4 overflow-y-auto">
-          <div className="bg-gradient-to-br from-green-400 to-blue-500 rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-12 shadow-xl md:shadow-2xl text-center transform animate-bounce w-full max-w-xs sm:max-w-sm my-auto">
+          <div className="bg-gradient-to-br from-green-400 to-blue-500 rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-12 shadow-xl md:shadow-2xl text-center transform w-full max-w-xs sm:max-w-sm my-auto">
             <div className="text-4xl sm:text-6xl md:text-8xl mb-2 md:mb-4">{currentAnimal?.emoji}</div>
             <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold text-white mb-1 md:mb-3">HEBAT!</h2>
             <p className="text-base sm:text-xl md:text-3xl text-white mb-4 md:mb-6">+100 Poin!</p>
