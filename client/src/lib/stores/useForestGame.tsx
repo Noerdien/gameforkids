@@ -6,6 +6,7 @@ export interface Animal {
   name: string;
   color: string;
   emoji: string;
+  isPlant?: boolean;
 }
 
 export const ANIMALS: Animal[] = [
@@ -49,21 +50,21 @@ export const ANIMALS: Animal[] = [
   { id: "kepiting", name: "KEPITING", color: "#FF4500", emoji: "🦀" },
   
   // Tumbuhan
-  { id: "pohon", name: "POHON", color: "#228B22", emoji: "🌳" },
-  { id: "bunga", name: "BUNGA", color: "#FF69B4", emoji: "🌸" },
-  { id: "rumput", name: "RUMPUT", color: "#90EE90", emoji: "🌱" },
-  { id: "kaktus", name: "KAKTUS", color: "#7CB342", emoji: "🌵" },
-  { id: "kelapa", name: "KELAPA", color: "#DAA520", emoji: "🥥" },
-  { id: "bunga_matahari", name: "BUNGA MATAHARI", color: "#FFD700", emoji: "🌻" },
-  { id: "bunga_ros", name: "BUNGA ROS", color: "#DC143C", emoji: "🌹" },
-  { id: "pohon_palm", name: "POHON PALEM", color: "#228B22", emoji: "🌴" },
-  { id: "jamur", name: "JAMUR", color: "#8B4513", emoji: "🍄" },
-  { id: "daun", name: "DAUN", color: "#228B22", emoji: "🍃" },
-  { id: "padi", name: "PADI", color: "#DAA520", emoji: "🌾" },
-  { id: "bayam", name: "BAYAM", color: "#228B22", emoji: "🥬" },
-  { id: "cabai", name: "CABAI", color: "#FF0000", emoji: "🌶️" },
-  { id: "jagung", name: "JAGUNG", color: "#FFD700", emoji: "🌽" },
-  { id: "nanas", name: "NANAS", color: "#FFD700", emoji: "🍍" },
+  { id: "pohon", name: "POHON", color: "#228B22", emoji: "🌳", isPlant: true },
+  { id: "bunga", name: "BUNGA", color: "#FF69B4", emoji: "🌸", isPlant: true },
+  { id: "rumput", name: "RUMPUT", color: "#90EE90", emoji: "🌱", isPlant: true },
+  { id: "kaktus", name: "KAKTUS", color: "#7CB342", emoji: "🌵", isPlant: true },
+  { id: "kelapa", name: "KELAPA", color: "#DAA520", emoji: "🥥", isPlant: true },
+  { id: "bunga_matahari", name: "BUNGA MATAHARI", color: "#FFD700", emoji: "🌻", isPlant: true },
+  { id: "bunga_ros", name: "BUNGA ROS", color: "#DC143C", emoji: "🌹", isPlant: true },
+  { id: "pohon_palm", name: "POHON PALEM", color: "#228B22", emoji: "🌴", isPlant: true },
+  { id: "jamur", name: "JAMUR", color: "#8B4513", emoji: "🍄", isPlant: true },
+  { id: "daun", name: "DAUN", color: "#228B22", emoji: "🍃", isPlant: true },
+  { id: "padi", name: "PADI", color: "#DAA520", emoji: "🌾", isPlant: true },
+  { id: "bayam", name: "BAYAM", color: "#228B22", emoji: "🥬", isPlant: true },
+  { id: "cabai", name: "CABAI", color: "#FF0000", emoji: "🌶️", isPlant: true },
+  { id: "jagung", name: "JAGUNG", color: "#FFD700", emoji: "🌽", isPlant: true },
+  { id: "nanas", name: "NANAS", color: "#FFD700", emoji: "🍍", isPlant: true },
 ];
 
 export type GameMode = "susun_huruf" | "tebak_pertama" | "cocokkan" | "huruf_hilang" | "kuis";

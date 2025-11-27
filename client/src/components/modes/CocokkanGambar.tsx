@@ -57,7 +57,7 @@ export function CocokkanGambar() {
         <div className="mb-6 sm:mb-8 md:mb-12">
           <div className="bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl sm:rounded-3xl px-6 sm:px-8 md:px-12 py-4 md:py-8 shadow-lg md:shadow-2xl">
             <p className="text-white text-lg sm:text-2xl md:text-3xl font-bold mb-3 md:mb-6">
-              Nama hewan ini adalah?
+              {currentAnimal.isPlant ? "Nama tumbuhan ini adalah?" : "Nama hewan ini adalah?"}
             </p>
             <div className="text-5xl sm:text-7xl md:text-9xl">{currentAnimal.emoji}</div>
           </div>
