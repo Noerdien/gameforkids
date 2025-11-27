@@ -5,15 +5,13 @@ import { ForestEnvironment } from "./ForestEnvironment";
 import { AnimalCharacter } from "./AnimalCharacter";
 import { useForestGame } from "@/lib/stores/useForestGame";
 import { SuccessParticles } from "./SuccessParticles";
-import { SusunHuruf } from "./modes/SusunHuruf";
 
 export function UnifiedGameScene() {
-  const { currentAnimal, phase, gameMode } = useForestGame();
+  const { currentAnimal, phase } = useForestGame();
   
   if (!currentAnimal) return null;
   
   const isCorrect = phase === "success";
-  const showLetterBlocks = gameMode === "susun_huruf";
   
   return (
     <Canvas shadows gl={{ antialias: true }}>
@@ -44,9 +42,6 @@ export function UnifiedGameScene() {
         
         {/* Animal character */}
         <AnimalCharacter animal={currentAnimal} isCorrect={isCorrect} />
-        
-        {/* Letter blocks only for susun_huruf mode */}
-        {showLetterBlocks && <SusunHuruf />}
         
         {/* Success particles */}
         {isCorrect && <SuccessParticles />}
