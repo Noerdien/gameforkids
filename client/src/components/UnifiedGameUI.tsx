@@ -7,7 +7,6 @@ import { TebakHurufPertama } from "./modes/TebakHurufPertama";
 import { CariHurufHilang } from "./modes/CariHurufHilang";
 import { CocokkanGambar } from "./modes/CocokkanGambar";
 import { KuisCepat } from "./modes/KuisCepat";
-import gameForKidsLogo from "@assets/generated_images/game_for_kids_logo.png";
 
 const MODE_NAMES: Record<string, string> = {
   susun_huruf: "Susun Huruf",
@@ -38,12 +37,10 @@ export function UnifiedGameUI() {
       <div className="z-30 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent flex-shrink-0" style={{ pointerEvents: 'auto' }}>
         <div className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 text-center border-b-2 border-white/30">
           {/* Game For Kids Logo */}
-          <div className="flex justify-center mb-2 sm:mb-2 md:mb-3">
-            <img 
-              src={gameForKidsLogo} 
-              alt="Game For Kids" 
-              className="h-10 sm:h-12 md:h-16 object-contain"
-            />
+          <div className="flex justify-center mb-1 sm:mb-1 md:mb-2">
+            <span className="text-base sm:text-lg md:text-2xl font-bold text-yellow-300 drop-shadow-lg">
+              🎮 GAME FOR KIDS 🎮
+            </span>
           </div>
           <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-white drop-shadow-lg mb-3 sm:mb-3 md:mb-4 leading-snug">
             🌳 Penyelamat Abjad Hutan 🌳
