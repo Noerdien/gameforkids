@@ -7,7 +7,6 @@ import { TebakHurufPertama } from "./modes/TebakHurufPertama";
 import { CariHurufHilang } from "./modes/CariHurufHilang";
 import { CocokkanGambar } from "./modes/CocokkanGambar";
 import { KuisCepat } from "./modes/KuisCepat";
-import { LetterBlocksContainer } from "./LetterBlock";
 
 const MODE_NAMES: Record<string, string> = {
   susun_huruf: "Susun Huruf",
@@ -90,11 +89,6 @@ export function UnifiedGameUI() {
       </div>
       
       {/* Mode-specific content - HTML only, never 3D */}
-      {gameMode === "susun_huruf" && (
-        <div className="relative w-full min-h-screen pointer-events-auto">
-          <LetterBlocksContainer />
-        </div>
-      )}
       {gameMode === "tebak_pertama" && <TebakHurufPertama />}
       {gameMode === "huruf_hilang" && <CariHurufHilang />}
       {gameMode === "cocokkan" && <CocokkanGambar />}
