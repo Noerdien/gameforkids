@@ -33,6 +33,7 @@ interface ForestGameState {
   selectedAnswer: string | null;
   score: number;
   totalStars: number;
+  isDarkMode: boolean;
   
   // Actions
   goToModeSelect: () => void;
@@ -46,6 +47,7 @@ interface ForestGameState {
   resetGame: () => void;
   backToModeSelect: () => void;
   setPhase: (phase: GamePhase) => void;
+  toggleDarkMode: () => void;
 }
 
 export const useForestGame = create<ForestGameState>()(
@@ -58,6 +60,7 @@ export const useForestGame = create<ForestGameState>()(
     selectedAnswer: null,
     score: 0,
     totalStars: 0,
+    isDarkMode: false,
     
     goToModeSelect: () => {
       set({
@@ -201,6 +204,11 @@ export const useForestGame = create<ForestGameState>()(
     
     setPhase: (phase: GamePhase) => {
       set({ phase });
+    },
+    
+    toggleDarkMode: () => {
+      const { isDarkMode } = get();
+      set({ isDarkMode: !isDarkMode });
     },
   }))
 );

@@ -1,7 +1,7 @@
 import { useForestGame, ANIMALS } from "@/lib/stores/useForestGame";
 import { useAudio } from "@/lib/stores/useAudio";
 import { Button } from "./ui/button";
-import { Volume2, VolumeX, Star, ArrowLeft, Award } from "lucide-react";
+import { Volume2, VolumeX, Star, ArrowLeft, Award, Moon, Sun } from "lucide-react";
 import { useEffect } from "react";
 import { TebakHurufPertama } from "./modes/TebakHurufPertama";
 import { CariHurufHilang } from "./modes/CariHurufHilang";
@@ -26,6 +26,8 @@ export function UnifiedGameUI() {
     currentLevel,
     nextLevel,
     backToModeSelect,
+    isDarkMode,
+    toggleDarkMode,
   } = useForestGame();
   
   const { isMuted, toggleMute } = useAudio();
@@ -34,33 +36,33 @@ export function UnifiedGameUI() {
   return (
     <>
       {/* Header Game - Sticky at top - Always interactive */}
-      <div className="z-30 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent flex-shrink-0" style={{ pointerEvents: 'auto' }}>
-        <div className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 text-center border-b-2 border-white/30">
+      <div className={`z-30 flex-shrink-0 transition-all duration-300 ${isDarkMode ? 'bg-gradient-to-b from-slate-800 via-slate-700 to-transparent' : 'bg-gradient-to-b from-blue-500 via-purple-500 to-transparent'}`} style={{ pointerEvents: 'auto' }}>
+        <div className={`px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 text-center border-b-2 transition-colors duration-300 ${isDarkMode ? 'border-white/10' : 'border-white/30'}`}>
           {/* Game For Kids Logo */}
           <div className="flex justify-center mb-2 sm:mb-3 md:mb-4">
-            <div className="bg-white/95 backdrop-blur rounded-full px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 shadow-xl border-4 border-yellow-400">
-              <span className="text-base sm:text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+            <div className={`backdrop-blur rounded-full px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 shadow-xl border-4 transition-all duration-300 ${isDarkMode ? 'bg-gray-800/95 border-cyan-400' : 'bg-white/95 border-yellow-400'}`}>
+              <span className={`text-base sm:text-xl md:text-2xl font-black text-transparent bg-clip-text transition-all duration-300 ${isDarkMode ? 'bg-gradient-to-r from-cyan-400 to-blue-400' : 'bg-gradient-to-r from-purple-600 to-pink-600'}`}>
                 🎮 GAME FOR KIDS 🎮
               </span>
             </div>
           </div>
-          <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-white drop-shadow-lg mb-3 sm:mb-3 md:mb-4 leading-snug">
+          <h2 className={`text-lg sm:text-xl md:text-3xl font-bold drop-shadow-lg mb-3 sm:mb-3 md:mb-4 leading-snug transition-colors duration-300 ${isDarkMode ? 'text-cyan-100' : 'text-white'}`}>
             🌳 Penyelamat Abjad Hutan 🌳
           </h2>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
-            <div className="bg-white/20 backdrop-blur-sm rounded px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2">
-              <p className="text-white text-xs sm:text-sm md:text-base font-semibold whitespace-nowrap">
+            <div className={`backdrop-blur-sm rounded px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2 transition-all duration-300 ${isDarkMode ? 'bg-white/10' : 'bg-white/20'}`}>
+              <p className={`text-xs sm:text-sm md:text-base font-semibold whitespace-nowrap transition-colors duration-300 ${isDarkMode ? 'text-cyan-100' : 'text-white'}`}>
                 Mode: {gameMode ? MODE_NAMES[gameMode] : "Game"}
               </p>
             </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2">
-              <p className="text-white text-xs sm:text-sm md:text-base font-semibold whitespace-nowrap">
+            <div className={`backdrop-blur-sm rounded px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2 transition-all duration-300 ${isDarkMode ? 'bg-white/10' : 'bg-white/20'}`}>
+              <p className={`text-xs sm:text-sm md:text-base font-semibold whitespace-nowrap transition-colors duration-300 ${isDarkMode ? 'text-cyan-100' : 'text-white'}`}>
                 Lv: {currentLevel + 1}/{ANIMALS.length}
               </p>
             </div>
             {currentAnimal && (
-              <div className="bg-white/20 backdrop-blur-sm rounded px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2">
-                <p className="text-white text-lg sm:text-xl md:text-2xl font-semibold">
+              <div className={`backdrop-blur-sm rounded px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2 transition-all duration-300 ${isDarkMode ? 'bg-white/10' : 'bg-white/20'}`}>
+                <p className="text-lg sm:text-xl md:text-2xl font-semibold">
                   {currentAnimal.emoji}
                 </p>
               </div>
@@ -70,28 +72,36 @@ export function UnifiedGameUI() {
       </div>
 
       {/* Top bar - Controls - Compact for all orientations */}
-      <div className="p-1 sm:p-2 md:p-4 flex justify-between items-center z-20 gap-1 sm:gap-2 bg-gradient-to-b from-blue-100 to-white/50 flex-shrink-0" style={{ pointerEvents: 'auto' }}>
+      <div className={`p-1 sm:p-2 md:p-4 flex justify-between items-center z-20 gap-1 sm:gap-2 flex-shrink-0 transition-all duration-300 ${isDarkMode ? 'bg-gradient-to-b from-slate-700 to-slate-600' : 'bg-gradient-to-b from-blue-100 to-white/50'}`} style={{ pointerEvents: 'auto' }}>
         <Button
           onClick={backToModeSelect}
           size="sm"
-          className="rounded-full w-6 sm:w-8 md:w-12 h-6 sm:h-8 md:h-12 bg-gray-500 hover:bg-gray-600 text-white shadow-lg flex items-center justify-center flex-shrink-0"
+          className={`rounded-full w-6 sm:w-8 md:w-12 h-6 sm:h-8 md:h-12 text-white shadow-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isDarkMode ? 'bg-red-600 hover:bg-red-700' : 'bg-gray-500 hover:bg-gray-600'}`}
         >
           <ArrowLeft className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" />
         </Button>
         
-        <div className="bg-white/90 backdrop-blur-sm rounded px-1.5 sm:px-2 md:px-4 py-0.5 sm:py-1 md:py-2 shadow-lg">
+        <div className={`backdrop-blur-sm rounded px-1.5 sm:px-2 md:px-4 py-0.5 sm:py-1 md:py-2 shadow-lg transition-all duration-300 ${isDarkMode ? 'bg-slate-700/90' : 'bg-white/90'}`}>
           <div className="flex items-center gap-0.5 sm:gap-1 md:gap-2">
-            <Star className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6 text-yellow-500 fill-yellow-500" />
-            <span className="text-xs sm:text-sm md:text-xl font-bold text-gray-800">{totalStars}</span>
+            <Star className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6 text-yellow-400 fill-yellow-400" />
+            <span className={`text-xs sm:text-sm md:text-xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-yellow-300' : 'text-gray-800'}`}>{totalStars}</span>
           </div>
         </div>
         
         <div className="flex-1"></div>
         
         <Button
+          onClick={toggleDarkMode}
+          size="sm"
+          className={`rounded-full w-6 sm:w-8 md:w-12 h-6 sm:h-8 md:h-12 text-white shadow-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isDarkMode ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-orange-500 hover:bg-orange-600'}`}
+        >
+          {isDarkMode ? <Sun className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" /> : <Moon className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" />}
+        </Button>
+        
+        <Button
           onClick={toggleMute}
           size="sm"
-          className="rounded-full w-6 sm:w-8 md:w-12 h-6 sm:h-8 md:h-12 bg-purple-500 hover:bg-purple-600 text-white shadow-lg flex items-center justify-center flex-shrink-0"
+          className={`rounded-full w-6 sm:w-8 md:w-12 h-6 sm:h-8 md:h-12 text-white shadow-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isDarkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-purple-500 hover:bg-purple-600'}`}
         >
           {isMuted ? <VolumeX className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" /> : <Volume2 className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" />}
         </Button>
