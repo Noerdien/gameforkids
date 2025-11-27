@@ -42,6 +42,8 @@
   position: fixed;
   top: 0;
   left: 0;
+  padding-top: env(safe-area-inset-top, 10px);
+  box-sizing: border-box;
 }
 
 @supports (height: 100dvh) {
