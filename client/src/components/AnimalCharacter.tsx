@@ -8,7 +8,7 @@ interface AnimalCharacterProps {
   isCorrect?: boolean;
 }
 
-const SCALE = 1.8; // Scale multiplier for all animals to be bigger for kids
+const SCALE = 5; // Scale multiplier for all animals to be bigger for kids
 
 export function AnimalCharacter({ animal, isCorrect = false }: AnimalCharacterProps) {
   const groupRef = useRef<THREE.Group>(null);
