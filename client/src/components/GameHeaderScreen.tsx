@@ -48,7 +48,7 @@ export function GameHeaderScreen() {
             🎮 Selamat datang!
           </p>
           <div className={`space-y-3 text-left text-base sm:text-lg md:text-xl transition-colors duration-300 ${isDarkMode ? 'text-cyan-50' : 'text-gray-700'}`}>
-            <p>🔤 Belajar membaca dan menulis huruf Indonesia</p>
+            <p>🔤 Belajar Mengenal Huruf</p>
             <p>🎯 Pilih dari 5 mode permainan yang berbeda</p>
             <p>🌿 43 level dengan hewan & tumbuhan yang beragam!</p>
           </div>
