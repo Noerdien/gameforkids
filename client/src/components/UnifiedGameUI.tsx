@@ -42,8 +42,36 @@ export function UnifiedGameUI() {
   
   return (
     <div className="fixed inset-0 pointer-events-none overflow-y-auto">
-      {/* Top bar */}
-      <div className="sticky top-0 left-0 right-0 p-2 sm:p-4 md:p-6 flex justify-between items-start pointer-events-auto z-20 gap-2 sm:gap-4 bg-gradient-to-b from-black/10 to-transparent">
+      {/* Header Game */}
+      <div className="sticky top-0 left-0 right-0 pointer-events-auto z-30 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent">
+        <div className="p-3 sm:p-4 md:p-6 text-center border-b-2 border-white/30">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white drop-shadow-lg mb-1 md:mb-2">
+            🌳 Penyelamat Abjad Hutan 🌳
+          </h2>
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-1 sm:py-2">
+              <p className="text-white text-xs sm:text-sm md:text-base font-semibold">
+                Mode: {gameMode ? MODE_NAMES[gameMode] : "Game"}
+              </p>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-1 sm:py-2">
+              <p className="text-white text-xs sm:text-sm md:text-base font-semibold">
+                Level: {currentLevel + 1} / {ANIMALS.length}
+              </p>
+            </div>
+            {currentAnimal && (
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-1 sm:py-2">
+                <p className="text-white text-xs sm:text-sm md:text-base font-semibold">
+                  Hewan: {currentAnimal.emoji} {currentAnimal.name}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Top bar - Controls */}
+      <div className="sticky top-20 sm:top-24 md:top-28 left-0 right-0 p-2 sm:p-4 md:p-6 flex justify-between items-start pointer-events-auto z-20 gap-2 sm:gap-4 bg-gradient-to-b from-black/10 to-transparent">
         <div className="flex gap-2 sm:gap-4">
           <Button
             onClick={backToModeSelect}
