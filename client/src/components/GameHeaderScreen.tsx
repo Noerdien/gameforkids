@@ -21,9 +21,9 @@ export function GameHeaderScreen() {
 
       <div className="text-center w-full max-w-2xl py-8">
         {/* Game For Kids Logo */}
-        <div className="flex justify-center mb-4 sm:mb-6">
-          <div className={`backdrop-blur rounded-full px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 shadow-xl border-4 transition-all duration-300 ${isDarkMode ? 'bg-gray-800/95 border-cyan-400' : 'bg-white/95 border-yellow-400'}`}>
-            <span className={`inline-block text-base sm:text-xl md:text-2xl font-black transition-all duration-300 ${isDarkMode ? 'text-cyan-400' : 'text-pink-600'}`}>
+        <div className="flex justify-center mb-6 sm:mb-8 md:mb-10">
+          <div className={`rounded-3xl px-6 sm:px-10 md:px-14 py-4 sm:py-6 md:py-8 shadow-2xl border-4 sm:border-6 md:border-8 transition-all duration-300 ${isDarkMode ? 'bg-cyan-600 border-cyan-300' : 'bg-yellow-300 border-yellow-500'}`}>
+            <span className={`inline-block text-2xl sm:text-4xl md:text-5xl font-black transition-all duration-300 whitespace-nowrap ${isDarkMode ? 'text-white drop-shadow-lg' : 'text-white drop-shadow-lg'}`}>
               🎮 GAME FOR KIDS 🎮
             </span>
           </div>
