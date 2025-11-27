@@ -54,10 +54,10 @@ export function TebakHurufPertama() {
   };
   
   return (
-    <div className="relative w-full h-full p-4 flex flex-col items-center justify-between">
+    <div className="relative w-full min-h-screen p-4 flex flex-col items-center justify-center gap-12 py-20">
       {/* Question */}
-      <div className="absolute top-8 sm:top-16 md:top-32 left-1/2 -translate-x-1/2 z-10 w-[90%] max-w-xl">
-        <div className="bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl sm:rounded-3xl px-4 sm:px-6 md:px-8 py-4 md:py-6 shadow-xl md:shadow-2xl">
+      <div className="w-full flex justify-center">
+        <div className="bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl sm:rounded-3xl px-4 sm:px-6 md:px-8 py-4 md:py-6 shadow-xl md:shadow-2xl max-w-xl w-full">
           <p className="text-white text-base sm:text-2xl md:text-3xl font-bold mb-1 md:mb-2">
             Huruf pertama dari nama hewan ini?
           </p>
@@ -66,8 +66,8 @@ export function TebakHurufPertama() {
       </div>
       
       {/* Letter options */}
-      <div className="absolute bottom-8 sm:bottom-16 md:bottom-32 left-1/2 -translate-x-1/2 z-10">
-        <div className="flex gap-2 sm:gap-3 md:gap-6 flex-wrap justify-center">
+      <div className="w-full flex justify-center pointer-events-auto">
+        <div className="flex gap-2 sm:gap-3 md:gap-6 flex-wrap justify-center max-w-2xl">
           {options.map((letter) => (
             <button
               key={letter}

@@ -98,7 +98,7 @@ export function KuisCepat() {
   };
   
   return (
-    <div className="relative w-full h-full flex items-center justify-center p-4">
+    <div className="relative w-full min-h-screen p-4 flex flex-col items-center justify-center gap-8 py-20 pointer-events-auto">
       <div className="text-center w-full max-w-2xl">
         {/* Question with clue */}
         <div className="mb-6 sm:mb-8 md:mb-12">
@@ -124,7 +124,7 @@ export function KuisCepat() {
               key={animal.id}
               onClick={() => handleSelectAnimal(animal)}
               disabled={selectedAnswer !== null}
-              className={`px-3 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 rounded-lg sm:rounded-2xl shadow-lg md:shadow-xl transition-all active:scale-95 ${
+              className={`px-3 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 rounded-lg sm:rounded-2xl shadow-lg md:shadow-xl transition-all active:scale-95 pointer-events-auto ${
                 selectedAnswer === animal.name
                   ? animal.name === currentAnimal.name
                     ? "bg-green-500 scale-105"

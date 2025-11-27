@@ -41,9 +41,9 @@ export function UnifiedGameUI() {
   }
   
   return (
-    <div className="fixed inset-0 pointer-events-none">
+    <div className="fixed inset-0 pointer-events-none overflow-y-auto">
       {/* Top bar */}
-      <div className="absolute top-0 left-0 right-0 p-2 sm:p-4 md:p-6 flex justify-between items-start pointer-events-auto z-20 gap-2 sm:gap-4">
+      <div className="sticky top-0 left-0 right-0 p-2 sm:p-4 md:p-6 flex justify-between items-start pointer-events-auto z-20 gap-2 sm:gap-4 bg-gradient-to-b from-black/10 to-transparent">
         <div className="flex gap-2 sm:gap-4">
           <Button
             onClick={backToModeSelect}
