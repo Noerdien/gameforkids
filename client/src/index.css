@@ -7,30 +7,47 @@
     @apply border-border;
   }
 
+  html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
   html {
-    width: 100%;
-    height: 100%;
     overflow: hidden;
   }
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
-    margin: 0;
-    padding: 0;
     overflow: hidden;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+  }
+
+  @supports (height: 100dvh) {
+    html, body {
+      height: 100dvh;
+    }
   }
 }
 
 #root {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@supports (height: 100dvh) {
+  #root {
+    height: 100dvh;
+  }
 }
 
 canvas {
@@ -38,4 +55,18 @@ canvas {
   height: 100% !important;
   touch-action: none;
   display: block;
+}
+
+@media (orientation: portrait) {
+  body, html, #root {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@media (orientation: landscape) {
+  body, html, #root {
+    width: 100vw;
+    height: 100vh;
+  }
 }

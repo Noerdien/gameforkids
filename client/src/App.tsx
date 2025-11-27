@@ -11,10 +11,26 @@ import "@fontsource/inter";
 
 function App() {
   const [showGame, setShowGame] = useState(false);
+  const [, setOrientation] = useState(window.innerWidth > window.innerHeight ? 'landscape' : 'portrait');
   const { phase } = useForestGame();
 
   useEffect(() => {
     setShowGame(true);
+  }, []);
+
+  useEffect(() => {
+    const handleOrientationChange = () => {
+      setOrientation(window.innerWidth > window.innerHeight ? 'landscape' : 'portrait');
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener('orientationchange', handleOrientationChange);
+    window.addEventListener('resize', handleOrientationChange);
+
+    return () => {
+      window.removeEventListener('orientationchange', handleOrientationChange);
+      window.removeEventListener('resize', handleOrientationChange);
+    };
   }, []);
 
   if (!showGame) {
@@ -22,7 +38,7 @@ function App() {
   }
 
   return (
-    <div style={{ width: '100%', height: '100%', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ width: '100vw', height: '100vh', position: 'fixed', top: 0, left: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
       {phase === 'header' && <GameHeaderScreen />}
       {phase === 'mode_select' && <ModeSelectScreen />}
       {phase === 'menu' && <MenuScreen />}
