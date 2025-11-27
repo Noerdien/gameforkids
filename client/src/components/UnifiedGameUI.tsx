@@ -29,11 +29,12 @@ export function UnifiedGameUI() {
   } = useForestGame();
   
   const { isMuted, toggleMute } = useAudio();
+  const isSusunHurf = gameMode === 'susun_huruf';
   
   return (
     <>
-      {/* Header Game - Sticky at top */}
-      <div className="pointer-events-auto z-30 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent flex-shrink-0">
+      {/* Header Game - Sticky at top - Always interactive */}
+      <div className="z-30 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent flex-shrink-0" style={{ pointerEvents: 'auto' }}>
         <div className="p-1.5 sm:p-2 md:p-4 text-center border-b-2 border-white/30">
           <h2 className="text-sm sm:text-lg md:text-3xl font-bold text-white drop-shadow-lg mb-0.5 sm:mb-1">
             🌳 Penyelamat Abjad Hutan 🌳
@@ -61,7 +62,7 @@ export function UnifiedGameUI() {
       </div>
 
       {/* Top bar - Controls - Compact for all orientations */}
-      <div className="p-1 sm:p-2 md:p-4 flex justify-between items-center pointer-events-auto z-20 gap-1 sm:gap-2 bg-gradient-to-b from-blue-100 to-white/50 flex-shrink-0">
+      <div className="p-1 sm:p-2 md:p-4 flex justify-between items-center z-20 gap-1 sm:gap-2 bg-gradient-to-b from-blue-100 to-white/50 flex-shrink-0" style={{ pointerEvents: 'auto' }}>
         <Button
           onClick={backToModeSelect}
           size="sm"
@@ -89,8 +90,8 @@ export function UnifiedGameUI() {
       </div>
       
       {/* Mode-specific content - Scrollable overlay */}
-      <div className="flex-1 pointer-events-auto overflow-y-auto px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4" style={{ 
-        pointerEvents: gameMode !== 'susun_huruf' ? 'auto' : 'none',
+      <div className="flex-1 overflow-y-auto px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4" style={{ 
+        pointerEvents: isSusunHurf ? 'none' : 'auto',
         minHeight: 0,
         display: 'flex',
         flexDirection: 'column'

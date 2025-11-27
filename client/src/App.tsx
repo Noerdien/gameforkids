@@ -12,7 +12,7 @@ import "@fontsource/inter";
 function App() {
   const [showGame, setShowGame] = useState(false);
   const [, setOrientation] = useState(window.innerWidth > window.innerHeight ? 'landscape' : 'portrait');
-  const { phase } = useForestGame();
+  const { phase, gameMode } = useForestGame();
 
   useEffect(() => {
     setShowGame(true);
@@ -37,6 +37,8 @@ function App() {
     return null;
   }
 
+  const isSusunHurf = gameMode === 'susun_huruf';
+
   return (
     <div style={{ width: '100vw', height: '100vh', position: 'fixed', top: 0, left: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
       {phase === 'header' && <GameHeaderScreen />}
@@ -58,7 +60,7 @@ function App() {
             <UnifiedGameScene />
           </div>
           
-          {/* UI Overlay - Full screen overlay */}
+          {/* UI Overlay - Full screen overlay - Pass through events for susun_huruf */}
           <div style={{ 
             position: 'absolute',
             top: 0,
@@ -69,7 +71,7 @@ function App() {
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
-            pointerEvents: 'auto'
+            pointerEvents: isSusunHurf ? 'none' : 'auto'
           }}>
             <UnifiedGameUI />
           </div>
