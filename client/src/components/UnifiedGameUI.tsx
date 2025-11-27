@@ -35,24 +35,24 @@ export function UnifiedGameUI() {
     <>
       {/* Header Game - Sticky at top - Always interactive */}
       <div className="z-30 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent flex-shrink-0" style={{ pointerEvents: 'auto' }}>
-        <div className="p-2 sm:p-3 md:p-4 text-center border-b-2 border-white/30">
-          <h2 className="text-base sm:text-lg md:text-3xl font-bold text-white drop-shadow-lg mb-2 sm:mb-2 md:mb-3 leading-tight">
+        <div className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 text-center border-b-2 border-white/30">
+          <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-white drop-shadow-lg mb-3 sm:mb-3 md:mb-4 leading-snug">
             🌳 Penyelamat Abjad Hutan 🌳
           </h2>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-2 md:gap-4">
-            <div className="bg-white/20 backdrop-blur-sm rounded px-2 sm:px-2 md:px-3 py-1 sm:py-1 md:py-1">
-              <p className="text-white text-xs sm:text-sm md:text-sm font-semibold whitespace-nowrap">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
+            <div className="bg-white/20 backdrop-blur-sm rounded px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2">
+              <p className="text-white text-xs sm:text-sm md:text-base font-semibold whitespace-nowrap">
                 Mode: {gameMode ? MODE_NAMES[gameMode] : "Game"}
               </p>
             </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded px-2 sm:px-2 md:px-3 py-1 sm:py-1 md:py-1">
-              <p className="text-white text-xs sm:text-sm md:text-sm font-semibold whitespace-nowrap">
+            <div className="bg-white/20 backdrop-blur-sm rounded px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2">
+              <p className="text-white text-xs sm:text-sm md:text-base font-semibold whitespace-nowrap">
                 Lv: {currentLevel + 1}/{ANIMALS.length}
               </p>
             </div>
             {currentAnimal && (
-              <div className="bg-white/20 backdrop-blur-sm rounded px-2 sm:px-2 md:px-3 py-1 sm:py-1 md:py-1">
-                <p className="text-white text-base sm:text-lg md:text-xl font-semibold">
+              <div className="bg-white/20 backdrop-blur-sm rounded px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2">
+                <p className="text-white text-lg sm:text-xl md:text-2xl font-semibold">
                   {currentAnimal.emoji}
                 </p>
               </div>
