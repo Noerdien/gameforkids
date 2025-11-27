@@ -43,20 +43,20 @@ export function UnifiedGameUI() {
   return (
     <div className="fixed inset-0 pointer-events-none">
       {/* Top bar */}
-      <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-start pointer-events-auto z-20">
-        <div className="flex gap-4">
+      <div className="absolute top-0 left-0 right-0 p-2 sm:p-4 md:p-6 flex justify-between items-start pointer-events-auto z-20 gap-2 sm:gap-4">
+        <div className="flex gap-2 sm:gap-4">
           <Button
             onClick={backToModeSelect}
             size="lg"
-            className="rounded-full w-16 h-16 bg-gray-500 hover:bg-gray-600 text-white shadow-lg"
+            className="rounded-full w-10 sm:w-12 md:w-16 h-10 sm:h-12 md:h-16 bg-gray-500 hover:bg-gray-600 text-white shadow-lg flex items-center justify-center"
           >
-            <ArrowLeft className="w-8 h-8" />
+            <ArrowLeft className="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8" />
           </Button>
           
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-lg">
-            <div className="flex items-center gap-3">
-              <Star className="w-8 h-8 text-yellow-500 fill-yellow-500" />
-              <span className="text-3xl font-bold text-gray-800">{totalStars}</span>
+          <div className="bg-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 shadow-lg">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Star className="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8 text-yellow-500 fill-yellow-500" />
+              <span className="text-lg sm:text-2xl md:text-3xl font-bold text-gray-800">{totalStars}</span>
             </div>
           </div>
         </div>
@@ -64,29 +64,29 @@ export function UnifiedGameUI() {
         <Button
           onClick={toggleMute}
           size="lg"
-          className="rounded-full w-16 h-16 bg-purple-500 hover:bg-purple-600 text-white shadow-lg"
+          className="rounded-full w-10 sm:w-12 md:w-16 h-10 sm:h-12 md:h-16 bg-purple-500 hover:bg-purple-600 text-white shadow-lg flex items-center justify-center"
         >
-          {isMuted ? <VolumeX className="w-8 h-8" /> : <Volume2 className="w-8 h-8" />}
+          {isMuted ? <VolumeX className="w-5 sm:w-6 md:w-8 h-5 sm:w-6 md:h-8" /> : <Volume2 className="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8" />}
         </Button>
       </div>
       
       {/* Mode-specific content */}
       {gameMode === "susun_huruf" && currentAnimal && (
         <>
-          <div className="absolute top-24 left-1/2 -translate-x-1/2 pointer-events-auto z-10">
-            <div className="bg-gradient-to-r from-pink-400 to-purple-500 rounded-3xl px-8 py-6 shadow-2xl">
+          <div className="absolute top-16 sm:top-20 md:top-24 left-1/2 -translate-x-1/2 pointer-events-auto z-10 w-[90%] max-w-2xl">
+            <div className="bg-gradient-to-r from-pink-400 to-purple-500 rounded-2xl sm:rounded-3xl px-4 sm:px-6 md:px-8 py-4 md:py-6 shadow-xl md:shadow-2xl">
               <div className="text-center">
-                <p className="text-white text-2xl font-bold mb-2">Bantu {currentAnimal.emoji} pulang!</p>
-                <p className="text-white text-xl">Susun huruf:</p>
-                <p className="text-5xl font-bold text-white mt-2 tracking-wider">{currentAnimal.name}</p>
+                <p className="text-white text-sm sm:text-xl md:text-2xl font-bold mb-1 md:mb-2">Bantu {currentAnimal.emoji} pulang!</p>
+                <p className="text-white text-base sm:text-lg md:text-xl">Susun huruf:</p>
+                <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-1 md:mt-2 tracking-wider">{currentAnimal.name}</p>
               </div>
             </div>
           </div>
           
           {selectedLetters.length > 0 && (
-            <div className="absolute bottom-32 left-1/2 -translate-x-1/2 pointer-events-none z-10">
-              <div className="bg-white/95 backdrop-blur-sm rounded-2xl px-8 py-6 shadow-xl">
-                <p className="text-4xl font-bold text-gray-800 tracking-widest">
+            <div className="absolute bottom-24 sm:bottom-28 md:bottom-32 left-1/2 -translate-x-1/2 pointer-events-none z-10 w-[90%] max-w-md">
+              <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl px-4 sm:px-6 md:px-8 py-3 md:py-6 shadow-lg md:shadow-xl">
+                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 tracking-widest">
                   {selectedLetters.map(sl => sl.letter).join("")}
                 </p>
               </div>
@@ -102,16 +102,16 @@ export function UnifiedGameUI() {
       
       {/* Success overlay */}
       {phase === "success" && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm pointer-events-auto z-30">
-          <div className="bg-gradient-to-br from-green-400 to-blue-500 rounded-3xl p-12 shadow-2xl text-center transform animate-bounce">
-            <div className="text-8xl mb-4">{currentAnimal?.emoji}</div>
-            <h2 className="text-6xl font-bold text-white mb-4">HEBAT!</h2>
-            <p className="text-3xl text-white mb-8">+100 Poin!</p>
+        <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm pointer-events-auto z-30 p-4">
+          <div className="bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-xl md:shadow-2xl text-center transform animate-bounce w-full max-w-sm">
+            <div className="text-5xl sm:text-7xl md:text-8xl mb-3 md:mb-4">{currentAnimal?.emoji}</div>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-2 md:mb-4">HEBAT!</h2>
+            <p className="text-lg sm:text-2xl md:text-3xl text-white mb-6 md:mb-8">+100 Poin!</p>
             
             <Button
               onClick={nextLevel}
               size="lg"
-              className="text-2xl px-12 py-8 rounded-2xl bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-bold shadow-lg"
+              className="text-base sm:text-xl md:text-2xl px-6 sm:px-8 md:px-12 py-3 sm:py-5 md:py-8 rounded-xl md:rounded-2xl bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-bold shadow-lg active:scale-95 w-full"
             >
               {currentLevel < ANIMALS.length - 1 ? "Hewan Selanjutnya!" : "Selesai!"}
             </Button>
@@ -127,18 +127,18 @@ function MenuScreen({ onStart, mode, onBack }: { onStart: () => void; mode: stri
   const canStart = mode !== null;
   
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-green-300 via-blue-400 to-purple-500">
-      <div className="text-center">
-        <div className="mb-8">
-          <h1 className="text-7xl font-bold text-white mb-4 drop-shadow-lg">
+    <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-green-300 via-blue-400 to-purple-500 overflow-auto p-4">
+      <div className="text-center w-full max-w-2xl py-6">
+        <div className="mb-6 md:mb-8">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-2 sm:mb-4 drop-shadow-lg">
             {modeName}
           </h1>
-          <p className="text-3xl text-white drop-shadow">
+          <p className="text-lg sm:text-2xl md:text-3xl text-white drop-shadow">
             Bantu hewan-hewan lucu menemukan jalan pulang!
           </p>
         </div>
         
-        <div className="mb-12 flex justify-center gap-4 text-6xl">
+        <div className="mb-8 md:mb-12 flex justify-center gap-2 sm:gap-3 md:gap-4 text-3xl sm:text-5xl md:text-6xl flex-wrap">
           {ANIMALS.map((animal, idx) => (
             <div key={animal.id} className="animate-bounce" style={{ animationDelay: `${idx * 0.1}s` }}>
               {animal.emoji}
@@ -147,16 +147,16 @@ function MenuScreen({ onStart, mode, onBack }: { onStart: () => void; mode: stri
         </div>
         
         {!canStart && (
-          <div className="mb-6 bg-red-500/80 text-white px-8 py-4 rounded-2xl text-xl font-bold">
+          <div className="mb-4 md:mb-6 bg-red-500/80 text-white px-4 sm:px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl text-sm sm:text-base md:text-xl font-bold">
             Silakan pilih mode permainan terlebih dahulu!
           </div>
         )}
         
-        <div className="flex gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <Button
             onClick={onBack}
             size="lg"
-            className="text-2xl px-12 py-8 rounded-3xl bg-gray-400 hover:bg-gray-500 text-white font-bold shadow-2xl"
+            className="text-lg sm:text-xl md:text-2xl px-6 sm:px-8 md:px-12 py-4 sm:py-6 md:py-8 rounded-2xl md:rounded-3xl bg-gray-400 hover:bg-gray-500 text-white font-bold shadow-lg md:shadow-2xl active:scale-95"
           >
             Kembali
           </Button>
@@ -165,7 +165,7 @@ function MenuScreen({ onStart, mode, onBack }: { onStart: () => void; mode: stri
             onClick={onStart}
             disabled={!canStart}
             size="lg"
-            className={`text-3xl px-16 py-10 rounded-3xl font-bold shadow-2xl transform transition-transform ${
+            className={`text-lg sm:text-2xl md:text-3xl px-8 sm:px-12 md:px-16 py-4 sm:py-6 md:py-10 rounded-2xl md:rounded-3xl font-bold shadow-lg md:shadow-2xl transform transition-transform active:scale-95 ${
               canStart
                 ? "bg-yellow-400 hover:bg-yellow-500 text-gray-800 hover:scale-110"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
@@ -175,7 +175,7 @@ function MenuScreen({ onStart, mode, onBack }: { onStart: () => void; mode: stri
           </Button>
         </div>
         
-        <div className="mt-12 text-white text-xl">
+        <div className="mt-8 md:mt-12 text-white text-sm sm:text-base md:text-xl">
           <p>⭐ Kumpulkan bintang sebanyak-banyaknya!</p>
         </div>
       </div>
@@ -185,39 +185,39 @@ function MenuScreen({ onStart, mode, onBack }: { onStart: () => void; mode: stri
 
 function CompleteScreen({ score, totalStars, onRestart, onBack }: { score: number; totalStars: number; onRestart: () => void; onBack: () => void }) {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-yellow-300 via-orange-400 to-pink-500">
-      <div className="text-center">
-        <div className="mb-8">
-          <Award className="w-32 h-32 text-white mx-auto mb-4" />
-          <h1 className="text-7xl font-bold text-white mb-4 drop-shadow-lg">
+    <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-yellow-300 via-orange-400 to-pink-500 overflow-auto p-4">
+      <div className="text-center w-full max-w-md py-6">
+        <div className="mb-6 md:mb-8">
+          <Award className="w-16 sm:w-20 md:w-32 h-16 sm:h-20 md:h-32 text-white mx-auto mb-2 md:mb-4" />
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-2 md:mb-4 drop-shadow-lg">
             SELAMAT!
           </h1>
-          <p className="text-3xl text-white drop-shadow mb-4">
+          <p className="text-lg sm:text-xl md:text-3xl text-white drop-shadow mb-3 md:mb-4">
             Kamu telah menyelamatkan semua hewan! 🎉
           </p>
         </div>
         
-        <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-12 mb-8 shadow-2xl">
-          <div className="flex items-center justify-center gap-8 mb-6">
+        <div className="bg-white/90 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-12 mb-6 md:mb-8 shadow-lg md:shadow-2xl">
+          <div className="flex items-center justify-center gap-4 md:gap-8 mb-4 md:mb-6">
             <div className="text-center">
-              <Star className="w-16 h-16 text-yellow-500 fill-yellow-500 mx-auto mb-2" />
-              <p className="text-5xl font-bold text-gray-800">{totalStars}</p>
-              <p className="text-xl text-gray-600">Bintang</p>
+              <Star className="w-10 sm:w-12 md:w-16 h-10 sm:h-12 md:h-16 text-yellow-500 fill-yellow-500 mx-auto mb-1 md:mb-2" />
+              <p className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-800">{totalStars}</p>
+              <p className="text-sm sm:text-base md:text-xl text-gray-600">Bintang</p>
             </div>
             
             <div className="text-center">
-              <Award className="w-16 h-16 text-purple-500 mx-auto mb-2" />
-              <p className="text-5xl font-bold text-gray-800">{score}</p>
-              <p className="text-xl text-gray-600">Poin</p>
+              <Award className="w-10 sm:w-12 md:w-16 h-10 sm:h-12 md:h-16 text-purple-500 mx-auto mb-1 md:mb-2" />
+              <p className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-800">{score}</p>
+              <p className="text-sm sm:text-base md:text-xl text-gray-600">Poin</p>
             </div>
           </div>
         </div>
         
-        <div className="flex gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <Button
             onClick={onBack}
             size="lg"
-            className="text-2xl px-12 py-8 rounded-3xl bg-blue-500 hover:bg-blue-600 text-white font-bold shadow-2xl"
+            className="text-base sm:text-lg md:text-2xl px-6 sm:px-8 md:px-12 py-3 sm:py-5 md:py-8 rounded-xl md:rounded-3xl bg-blue-500 hover:bg-blue-600 text-white font-bold shadow-lg md:shadow-2xl active:scale-95"
           >
             Pilih Mode Lain
           </Button>
@@ -225,7 +225,7 @@ function CompleteScreen({ score, totalStars, onRestart, onBack }: { score: numbe
           <Button
             onClick={onRestart}
             size="lg"
-            className="text-3xl px-16 py-10 rounded-3xl bg-green-500 hover:bg-green-600 text-white font-bold shadow-2xl transform hover:scale-110 transition-transform"
+            className="text-base sm:text-lg md:text-3xl px-8 sm:px-12 md:px-16 py-3 sm:py-5 md:py-10 rounded-xl md:rounded-3xl bg-green-500 hover:bg-green-600 text-white font-bold shadow-lg md:shadow-2xl transform hover:scale-110 transition-transform active:scale-95"
           >
             Main Lagi!
           </Button>

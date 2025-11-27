@@ -51,26 +51,26 @@ export function CocokkanGambar() {
   };
   
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
-      <div className="text-center">
+    <div className="relative w-full h-full flex items-center justify-center p-4">
+      <div className="text-center w-full max-w-2xl">
         {/* Question with animal emoji */}
-        <div className="mb-12">
-          <div className="bg-gradient-to-r from-purple-400 to-pink-500 rounded-3xl px-12 py-8 shadow-2xl inline-block">
-            <p className="text-white text-3xl font-bold mb-6">
+        <div className="mb-6 sm:mb-8 md:mb-12">
+          <div className="bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl sm:rounded-3xl px-6 sm:px-8 md:px-12 py-4 md:py-8 shadow-lg md:shadow-2xl inline-block">
+            <p className="text-white text-lg sm:text-2xl md:text-3xl font-bold mb-3 md:mb-6">
               Nama hewan ini adalah?
             </p>
-            <div className="text-9xl">{currentAnimal.emoji}</div>
+            <div className="text-5xl sm:text-7xl md:text-9xl">{currentAnimal.emoji}</div>
           </div>
         </div>
         
         {/* Name options in a grid */}
-        <div className="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-6 max-w-2xl mx-auto">
           {options.map((animal) => (
             <button
               key={animal.id}
               onClick={() => handleSelectName(animal)}
               disabled={selectedAnswer !== null}
-              className={`px-8 py-6 rounded-2xl font-bold text-3xl shadow-xl transition-all ${
+              className={`px-3 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 rounded-lg sm:rounded-2xl font-bold text-sm sm:text-xl md:text-3xl shadow-lg md:shadow-xl transition-all active:scale-95 ${
                 selectedAnswer === animal.name
                   ? animal.name === currentAnimal.name
                     ? "bg-green-500 text-white scale-105"

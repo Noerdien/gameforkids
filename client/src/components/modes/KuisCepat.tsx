@@ -98,33 +98,33 @@ export function KuisCepat() {
   };
   
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
-      <div className="text-center max-w-4xl">
+    <div className="relative w-full h-full flex items-center justify-center p-4">
+      <div className="text-center w-full max-w-2xl">
         {/* Question with clue */}
-        <div className="mb-12">
-          <div className="bg-gradient-to-r from-pink-400 to-purple-500 rounded-3xl px-12 py-8 shadow-2xl">
-            <p className="text-white text-3xl font-bold mb-4">
+        <div className="mb-6 sm:mb-8 md:mb-12">
+          <div className="bg-gradient-to-r from-pink-400 to-purple-500 rounded-2xl sm:rounded-3xl px-6 sm:px-8 md:px-12 py-4 md:py-8 shadow-lg md:shadow-2xl">
+            <p className="text-white text-lg sm:text-2xl md:text-3xl font-bold mb-2 md:mb-4">
               🧠 Tebak Hewan Apa Ini? 🧠
             </p>
-            <div className="bg-white/20 backdrop-blur-sm rounded-2xl px-8 py-6 mb-4">
-              <p className="text-white text-2xl italic">
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg sm:rounded-2xl px-4 sm:px-6 md:px-8 py-3 md:py-6 mb-2 md:mb-4">
+              <p className="text-white text-sm sm:text-lg md:text-2xl italic">
                 "{clue}"
               </p>
             </div>
-            <p className="text-white text-xl">
+            <p className="text-white text-sm sm:text-base md:text-xl">
               Pilih nama hewan yang benar!
             </p>
           </div>
         </div>
         
         {/* Animal emoji options */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-6">
           {options.map((animal) => (
             <button
               key={animal.id}
               onClick={() => handleSelectAnimal(animal)}
               disabled={selectedAnswer !== null}
-              className={`px-8 py-8 rounded-2xl shadow-xl transition-all ${
+              className={`px-3 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 rounded-lg sm:rounded-2xl shadow-lg md:shadow-xl transition-all active:scale-95 ${
                 selectedAnswer === animal.name
                   ? animal.name === currentAnimal.name
                     ? "bg-green-500 scale-105"
@@ -132,8 +132,8 @@ export function KuisCepat() {
                   : "bg-white hover:scale-105 hover:bg-yellow-400"
               }`}
             >
-              <div className="text-7xl mb-3">{animal.emoji}</div>
-              <p className={`text-2xl font-bold ${
+              <div className="text-4xl sm:text-6xl md:text-7xl mb-1 md:mb-3">{animal.emoji}</div>
+              <p className={`text-sm sm:text-lg md:text-2xl font-bold ${
                 selectedAnswer === animal.name ? "text-white" : "text-gray-800"
               }`}>
                 {animal.name}

@@ -54,26 +54,26 @@ export function TebakHurufPertama() {
   };
   
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full p-4 flex flex-col items-center justify-between">
       {/* Question */}
-      <div className="absolute top-32 left-1/2 -translate-x-1/2 z-10">
-        <div className="bg-gradient-to-r from-green-400 to-blue-500 rounded-3xl px-8 py-6 shadow-2xl">
-          <p className="text-white text-3xl font-bold mb-2">
+      <div className="absolute top-8 sm:top-16 md:top-32 left-1/2 -translate-x-1/2 z-10 w-[90%] max-w-xl">
+        <div className="bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl sm:rounded-3xl px-4 sm:px-6 md:px-8 py-4 md:py-6 shadow-xl md:shadow-2xl">
+          <p className="text-white text-base sm:text-2xl md:text-3xl font-bold mb-1 md:mb-2">
             Huruf pertama dari nama hewan ini?
           </p>
-          <p className="text-7xl text-center">{currentAnimal.emoji}</p>
+          <p className="text-4xl sm:text-6xl md:text-7xl text-center">{currentAnimal.emoji}</p>
         </div>
       </div>
       
       {/* Letter options */}
-      <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-10">
-        <div className="flex gap-6">
+      <div className="absolute bottom-8 sm:bottom-16 md:bottom-32 left-1/2 -translate-x-1/2 z-10">
+        <div className="flex gap-2 sm:gap-3 md:gap-6 flex-wrap justify-center">
           {options.map((letter) => (
             <button
               key={letter}
               onClick={() => handleSelectLetter(letter)}
               disabled={selectedAnswer !== null}
-              className={`w-24 h-24 rounded-2xl font-bold text-4xl shadow-xl transition-all ${
+              className={`w-14 h-14 sm:w-18 sm:h-18 md:w-24 md:h-24 rounded-lg sm:rounded-2xl font-bold text-2xl sm:text-3xl md:text-4xl shadow-lg md:shadow-xl transition-all active:scale-95 ${
                 selectedAnswer === letter
                   ? letter === correctLetter
                     ? "bg-green-500 text-white scale-110"
