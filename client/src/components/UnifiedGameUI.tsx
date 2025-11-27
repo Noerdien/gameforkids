@@ -114,7 +114,7 @@ export function UnifiedGameUI() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
