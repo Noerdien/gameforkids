@@ -22,39 +22,42 @@ function App() {
   }
 
   return (
-    <div style={{ width: '100vw', minHeight: '100vh', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>
       {phase === 'header' && <GameHeaderScreen />}
       {phase === 'mode_select' && <ModeSelectScreen />}
       {phase === 'menu' && <MenuScreen />}
       
       {(phase === 'playing' || phase === 'success') && (
-        <div style={{ flex: 1, position: 'relative', display: 'flex', flexDirection: 'column', minHeight: '100vh', overflow: 'hidden' }}>
-          {/* Canvas - Mobile responsive */}
+        <>
+          {/* Canvas - Full screen */}
           <div style={{ 
-            position: 'relative', 
+            position: 'absolute',
+            top: 0,
+            left: 0,
             width: '100%', 
-            height: 'clamp(250px, 50vh, 500px)',
-            flexShrink: 0,
+            height: '100%',
             zIndex: 0,
             backgroundColor: '#87CEEB'
           }}>
             <UnifiedGameScene />
           </div>
           
-          {/* UI Overlay - Scrollable */}
+          {/* UI Overlay - Full screen overlay */}
           <div style={{ 
-            flex: 1, 
-            position: 'relative', 
-            overflowY: 'auto', 
-            overflowX: 'hidden', 
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%', 
+            height: '100%',
             zIndex: 10,
+            pointerEvents: 'none',
             display: 'flex',
             flexDirection: 'column',
-            backgroundColor: 'rgba(255, 255, 255, 0.95)'
+            overflow: 'hidden'
           }}>
             <UnifiedGameUI />
           </div>
-        </div>
+        </>
       )}
       
       {phase === 'levelComplete' && <CompleteScreen />}

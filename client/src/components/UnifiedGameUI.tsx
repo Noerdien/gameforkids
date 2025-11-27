@@ -31,28 +31,28 @@ export function UnifiedGameUI() {
   const { isMuted, toggleMute } = useAudio();
   
   return (
-    <div className="w-full pointer-events-none flex flex-col">
-      {/* Header Game - Mobile optimized */}
+    <>
+      {/* Header Game - Sticky at top */}
       <div className="pointer-events-auto z-30 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent flex-shrink-0">
-        <div className="p-2 sm:p-3 md:p-6 text-center border-b-2 border-white/30">
-          <h2 className="text-lg sm:text-2xl md:text-4xl font-bold text-white drop-shadow-lg mb-1">
+        <div className="p-1.5 sm:p-2 md:p-4 text-center border-b-2 border-white/30">
+          <h2 className="text-sm sm:text-lg md:text-3xl font-bold text-white drop-shadow-lg mb-0.5 sm:mb-1">
             🌳 Penyelamat Abjad Hutan 🌳
           </h2>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-6">
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-2 sm:px-3 md:px-4 py-0.5 sm:py-1 md:py-2">
-              <p className="text-white text-xs sm:text-sm md:text-base font-semibold">
+          <div className="flex flex-wrap justify-center gap-1 sm:gap-2 md:gap-4">
+            <div className="bg-white/20 backdrop-blur-sm rounded px-1.5 sm:px-2 md:px-3 py-0.25 sm:py-0.5 md:py-1">
+              <p className="text-white text-xs sm:text-xs md:text-sm font-semibold">
                 Mode: {gameMode ? MODE_NAMES[gameMode] : "Game"}
               </p>
             </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-2 sm:px-3 md:px-4 py-0.5 sm:py-1 md:py-2">
-              <p className="text-white text-xs sm:text-sm md:text-base font-semibold">
-                Level: {currentLevel + 1} / {ANIMALS.length}
+            <div className="bg-white/20 backdrop-blur-sm rounded px-1.5 sm:px-2 md:px-3 py-0.25 sm:py-0.5 md:py-1">
+              <p className="text-white text-xs sm:text-xs md:text-sm font-semibold">
+                Lv: {currentLevel + 1}/{ANIMALS.length}
               </p>
             </div>
             {currentAnimal && (
-              <div className="bg-white/20 backdrop-blur-sm rounded-lg px-2 sm:px-3 md:px-4 py-0.5 sm:py-1 md:py-2">
-                <p className="text-white text-xs sm:text-sm md:text-base font-semibold">
-                  {currentAnimal.emoji} {currentAnimal.name}
+              <div className="bg-white/20 backdrop-blur-sm rounded px-1.5 sm:px-2 md:px-3 py-0.25 sm:py-0.5 md:py-1">
+                <p className="text-white text-xs sm:text-xs md:text-sm font-semibold">
+                  {currentAnimal.emoji}
                 </p>
               </div>
             )}
@@ -60,36 +60,36 @@ export function UnifiedGameUI() {
         </div>
       </div>
 
-      {/* Top bar - Controls - Mobile optimized */}
-      <div className="p-2 sm:p-3 md:p-6 flex justify-between items-start pointer-events-auto z-20 gap-2 sm:gap-3 bg-gradient-to-b from-blue-100 to-white/50 flex-shrink-0">
-        <div className="flex gap-1 sm:gap-2 md:gap-4">
-          <Button
-            onClick={backToModeSelect}
-            size="sm"
-            className="rounded-full w-8 sm:w-10 md:w-16 h-8 sm:h-10 md:h-16 bg-gray-500 hover:bg-gray-600 text-white shadow-lg flex items-center justify-center"
-          >
-            <ArrowLeft className="w-4 sm:w-5 md:w-8 h-4 sm:h-5 md:h-8" />
-          </Button>
-          
-          <div className="bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl px-2 sm:px-3 md:px-6 py-1 sm:py-2 md:py-4 shadow-lg">
-            <div className="flex items-center gap-1 sm:gap-2 md:gap-3">
-              <Star className="w-4 sm:w-5 md:w-8 h-4 sm:h-5 md:h-8 text-yellow-500 fill-yellow-500" />
-              <span className="text-base sm:text-lg md:text-3xl font-bold text-gray-800">{totalStars}</span>
-            </div>
+      {/* Top bar - Controls - Compact for all orientations */}
+      <div className="p-1 sm:p-2 md:p-4 flex justify-between items-center pointer-events-auto z-20 gap-1 sm:gap-2 bg-gradient-to-b from-blue-100 to-white/50 flex-shrink-0">
+        <Button
+          onClick={backToModeSelect}
+          size="sm"
+          className="rounded-full w-6 sm:w-8 md:w-12 h-6 sm:h-8 md:h-12 bg-gray-500 hover:bg-gray-600 text-white shadow-lg flex items-center justify-center flex-shrink-0"
+        >
+          <ArrowLeft className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" />
+        </Button>
+        
+        <div className="bg-white/90 backdrop-blur-sm rounded px-1.5 sm:px-2 md:px-4 py-0.5 sm:py-1 md:py-2 shadow-lg">
+          <div className="flex items-center gap-0.5 sm:gap-1 md:gap-2">
+            <Star className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6 text-yellow-500 fill-yellow-500" />
+            <span className="text-xs sm:text-sm md:text-xl font-bold text-gray-800">{totalStars}</span>
           </div>
         </div>
+        
+        <div className="flex-1"></div>
         
         <Button
           onClick={toggleMute}
           size="sm"
-          className="rounded-full w-8 sm:w-10 md:w-16 h-8 sm:h-10 md:h-16 bg-purple-500 hover:bg-purple-600 text-white shadow-lg flex items-center justify-center"
+          className="rounded-full w-6 sm:w-8 md:w-12 h-6 sm:h-8 md:h-12 bg-purple-500 hover:bg-purple-600 text-white shadow-lg flex items-center justify-center flex-shrink-0"
         >
-          {isMuted ? <VolumeX className="w-4 sm:w-5 md:w-8 h-4 sm:h-5 md:h-8" /> : <Volume2 className="w-4 sm:w-5 md:w-8 h-4 sm:h-5 md:h-8" />}
+          {isMuted ? <VolumeX className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" /> : <Volume2 className="w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6" />}
         </Button>
       </div>
       
-      {/* Mode-specific content - Scrollable area */}
-      <div className="flex-1 pointer-events-auto overflow-y-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-6">
+      {/* Mode-specific content - Scrollable overlay */}
+      <div className="flex-1 pointer-events-auto overflow-y-auto px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4">
         {gameMode === "tebak_pertama" && <TebakHurufPertama />}
         {gameMode === "huruf_hilang" && <CariHurufHilang />}
         {gameMode === "cocokkan" && <CocokkanGambar />}
