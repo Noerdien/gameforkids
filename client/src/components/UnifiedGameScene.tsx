@@ -56,11 +56,10 @@ export function UnifiedGameScene() {
       <OrbitControls
         enablePan={false}
         enableZoom={false}
-        maxPolarAngle={Math.PI}
-        minPolarAngle={0}
-        maxAzimuthAngle={Math.PI * 2}
-        minAzimuthAngle={-Math.PI * 2}
+        maxPolarAngle={Math.PI * 0.9}
+        minPolarAngle={Math.PI * 0.1}
         autoRotate={false}
+        autoRotateSpeed={0}
       />
     </Canvas>
   );
