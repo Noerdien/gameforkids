@@ -22,7 +22,7 @@ function App() {
   }
 
   return (
-    <div style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ width: '100%', height: '100%', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
       {phase === 'header' && <GameHeaderScreen />}
       {phase === 'mode_select' && <ModeSelectScreen />}
       {phase === 'menu' && <MenuScreen />}
@@ -44,7 +44,7 @@ function App() {
           
           {/* UI Overlay - Full screen overlay */}
           <div style={{ 
-            position: 'fixed',
+            position: 'absolute',
             top: 0,
             left: 0,
             width: '100%', 
