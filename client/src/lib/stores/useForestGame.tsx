@@ -17,7 +17,7 @@ export const ANIMALS: Animal[] = [
 ];
 
 export type GameMode = "susun_huruf" | "tebak_pertama" | "cocokkan" | "huruf_hilang" | "kuis";
-export type GamePhase = "mode_select" | "menu" | "playing" | "success" | "levelComplete";
+export type GamePhase = "header" | "mode_select" | "menu" | "playing" | "success" | "levelComplete";
 
 export interface SelectedLetter {
   letter: string;
@@ -35,6 +35,7 @@ interface ForestGameState {
   totalStars: number;
   
   // Actions
+  goToModeSelect: () => void;
   selectMode: (mode: GameMode) => void;
   startGame: () => void;
   selectLetter: (letter: string, blockId: string) => void;
@@ -50,13 +51,20 @@ interface ForestGameState {
 export const useForestGame = create<ForestGameState>()(
   subscribeWithSelector((set, get) => ({
     gameMode: null,
-    phase: "mode_select",
+    phase: "header",
     currentLevel: 0,
     currentAnimal: null,
     selectedLetters: [],
     selectedAnswer: null,
     score: 0,
     totalStars: 0,
+    
+    goToModeSelect: () => {
+      set({
+        phase: "mode_select",
+        gameMode: null,
+      });
+    },
     
     selectMode: (mode: GameMode) => {
       set({

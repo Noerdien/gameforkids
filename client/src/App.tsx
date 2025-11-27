@@ -3,6 +3,7 @@ import { useForestGame } from "./lib/stores/useForestGame";
 import { UnifiedGameScene } from "./components/UnifiedGameScene";
 import { UnifiedGameUI } from "./components/UnifiedGameUI";
 import { ModeSelectScreen } from "./components/ModeSelectScreen";
+import { GameHeaderScreen } from "./components/GameHeaderScreen";
 import { SoundManager } from "./components/SoundManager";
 import "@fontsource/inter";
 
@@ -20,16 +21,15 @@ function App() {
 
   return (
     <div style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>
-      {/* Mode Selection Screen */}
+      {phase === 'header' && <GameHeaderScreen />}
       {phase === 'mode_select' && <ModeSelectScreen />}
-      
-      {/* 3D Game Scene - show when playing or success */}
-      {(phase === 'playing' || phase === 'success') && <UnifiedGameScene />}
-      
-      {/* UI Overlay - show for menu, playing, success, and levelComplete */}
-      {phase !== 'mode_select' && <UnifiedGameUI />}
-      
-      {/* Sound Manager */}
+      {(phase === 'playing' || phase === 'success') && (
+        <>
+          <UnifiedGameScene />
+          <UnifiedGameUI />
+        </>
+      )}
+      {(phase === 'menu' || phase === 'levelComplete') && <UnifiedGameUI />}
       <SoundManager />
     </div>
   );
