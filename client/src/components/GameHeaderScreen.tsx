@@ -48,17 +48,18 @@ export function GameHeaderScreen() {
             🎮 Selamat datang!
           </p>
           <div className={`space-y-3 text-left text-base sm:text-lg md:text-xl transition-colors duration-300 ${isDarkMode ? 'text-cyan-50' : 'text-gray-700'}`}>
-            <p>✨ Bantu hewan-hewan lucu menemukan jalan pulang!</p>
+            <p>✨ Bantu hewan & tumbuhan di hutan menemukan jalan pulang!</p>
             <p>🔤 Belajar membaca dan menulis huruf Indonesia</p>
             <p>🌟 Kumpulkan bintang dengan menyelesaikan setiap level</p>
             <p>🎯 Pilih dari 5 mode permainan yang berbeda</p>
+            <p>🌿 43 level dengan hewan & tumbuhan yang beragam!</p>
           </div>
         </div>
 
         {/* Animals preview */}
         <div className="mb-8 md:mb-12">
           <p className={`text-lg sm:text-xl md:text-2xl font-bold mb-4 drop-shadow transition-colors duration-300 ${isDarkMode ? 'text-cyan-100' : 'text-white'}`}>
-            Hewan-hewan yang ingin kamu selamatkan:
+            Hewan & Tumbuhan yang ingin kamu selamatkan:
           </p>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
             <div className="text-3xl sm:text-4xl md:text-5xl">🐱</div>
